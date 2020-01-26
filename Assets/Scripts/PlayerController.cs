@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private float jumpForce = 16.0f;
     [SerializeField] private float groundCheckRadius;
-    
+
+    [SerializeField] private GameObject leftBullet, rightBullet;
+    [SerializeField] private Transform firePosition;
+
     private float movementInputDirection;
     private float facingDirection = 1;
 
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        firePosition = transform.Find("FirePosition");
     }
 
     void FixedUpdate()
@@ -47,7 +51,11 @@ public class PlayerController : MonoBehaviour
         CheckMovementDirection();
         
         UpdateAnimations();
-        
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Fire();
+        }
     }
 
     private void CheckInput()
@@ -135,5 +143,17 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+    void Fire()
+    {
+        if (isFacingRight)
+        {
+            Instantiate(rightBullet, firePosition.position, Quaternion.identity);
+        }
+        else if (!isFacingRight)
+        {
+            Instantiate(leftBullet, firePosition.position, Quaternion.identity);
+        }
     }
 }
