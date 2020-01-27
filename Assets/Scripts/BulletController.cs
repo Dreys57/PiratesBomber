@@ -7,9 +7,12 @@ public class BulletController : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float timer;
+    private GameObject enemy;
 
     private Rigidbody2D rigidBody;
     private Animator animator;
+
+    private bool isExplosed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class BulletController : MonoBehaviour
         if (timer <= 0)
         {
             animator.SetBool("explode", true);
+            isExplosed = true;
+            Destroy(enemy, 0.25f);
         }
     }
 
@@ -35,4 +40,14 @@ public class BulletController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") )
+        {
+            enemy = other.gameObject;
+        }
+    }
+
 }

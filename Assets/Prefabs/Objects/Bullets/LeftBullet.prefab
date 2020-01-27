@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 546328161528878020}
   - component: {fileID: 546328161528878027}
   - component: {fileID: 4990109327083232756}
+  - component: {fileID: 4950549654900090739}
   m_Layer: 0
   m_Name: LeftBullet
   m_TagString: Bullet
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -7
   timer: 1.5
+  whale: {fileID: 2135896278770987543, guid: daa5f653fc71cfe45915a9654423eaf9, type: 3}
 --- !u!95 &4990109327083232756
 Animator:
   serializedVersion: 3
@@ -154,3 +156,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &4950549654900090739
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546328161528878026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.68532944}
+  serializedVersion: 2
+  m_Radius: 1.4037735

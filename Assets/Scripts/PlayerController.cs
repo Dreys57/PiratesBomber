@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
-    
+    [SerializeField] private LayerMask platform;
+
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private float jumpForce = 16.0f;
     [SerializeField] private float groundCheckRadius;
