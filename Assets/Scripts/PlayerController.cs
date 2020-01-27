@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private float jumpForce = 16.0f;
     [SerializeField] private float groundCheckRadius;
+    [SerializeField] private float variableJumpHeightMultiplier = 0.5f;
 
     [SerializeField] private GameObject leftBullet, rightBullet;
     [SerializeField] private Transform firePosition;
@@ -71,6 +72,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             jumpButtonPressed = false;
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y * variableJumpHeightMultiplier);
         }
     }
 
