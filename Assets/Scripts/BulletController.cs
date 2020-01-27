@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
 
-    [SerializeField] private Vector2 speed;
+    [SerializeField] private float speed;
     [SerializeField] private float timer;
 
     private Rigidbody2D rigidBody;
@@ -14,13 +14,13 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        rigidBody.velocity = speed;
+        rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
         Destroy(gameObject, timer);
     }
 
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = speed;
+        
     }
 }
