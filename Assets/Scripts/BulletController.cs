@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-
     [SerializeField] private float speed;
     [SerializeField] private float timer;
     private GameObject enemy;
@@ -12,7 +11,7 @@ public class BulletController : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Animator animator;
 
-    private bool isExplosed = false;
+    private bool asExploded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +30,7 @@ public class BulletController : MonoBehaviour
         if (timer <= 0)
         {
             animator.SetBool("explode", true);
-            isExplosed = true;
+            asExploded = true;
             Destroy(enemy, 0.25f);
         }
     }
